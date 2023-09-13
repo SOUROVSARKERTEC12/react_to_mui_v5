@@ -26,7 +26,7 @@ const UserBox = styled(Box)({
 export const Sidebar = () => {
     return (
         <Box flex={3}>
-            <Box>
+            <Box position="fixed">
                 <List
                     sx={{
                         marginBottom: "10px",
