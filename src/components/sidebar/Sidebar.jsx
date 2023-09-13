@@ -25,7 +25,7 @@ const UserBox = styled(Box)({
 
 export const Sidebar = () => {
     return (
-        <Box flex={1}>
+        <Box flex={3}>
             <Box>
                 <List
                     sx={{
