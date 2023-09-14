@@ -181,7 +181,7 @@ export default function Topbar() {
                         component="div"
                         sx={{ display: { xs: 'none', sm: 'block' } }}
                     >
-                        R2MUIv5
+                        Social Media
                     </Typography>
                     <Search>
                         <SearchIconWrapper>
