@@ -17,7 +17,7 @@ export const Share = () => {
         <Paper sx={{marginLeft: 2, marginRight: 2}}>
             <UserBox>
                 <Avatar sx={{width: 42, height: 42, marginLeft: "7px"}}
-                        src="public/assets/person/1.jpeg"
+                        src="/assets/person/1.jpeg"
                 />
                 <TextField
                     sx={{width: "100%"}}

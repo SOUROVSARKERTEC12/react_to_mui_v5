@@ -114,25 +114,25 @@ export const Sidebar = () => {
                     <Divider sx={{marginTop: 1}}/>
                     <UserBox>
                         <Avatar sx={{width: 32, height: 32}}
-                                src="public/assets/person/2.jpeg"
+                                src="/assets/person/2.jpeg"
                         />
                         <Typography variant="span">John Deo</Typography>
                     </UserBox>
                     <UserBox>
                         <Avatar sx={{width: 32, height: 32}}
-                                src="public/assets/person/2.jpeg"
+                                src="/assets/person/2.jpeg"
                         />
                         <Typography variant="span">John Deo</Typography>
                     </UserBox>
                     <UserBox>
                         <Avatar sx={{width: 32, height: 32}}
-                                src="public/assets/person/2.jpeg"
+                                src="/assets/person/2.jpeg"
                         />
                         <Typography variant="span">John Deo</Typography>
                     </UserBox>
                     <UserBox>
                         <Avatar sx={{width: 32, height: 32}}
-                                src="public/assets/person/2.jpeg"
+                                src="/assets/person/2.jpeg"
                         />
                         <Typography variant="span">John Deo</Typography>
                     </UserBox>
