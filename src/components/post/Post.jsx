@@ -5,20 +5,30 @@ import {
     CardContent,
     CardHeader,
     CardMedia,
-    Checkbox,
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
-import RecommendIcon from '@mui/icons-material/Recommend';
-import {Favorite, FavoriteBorder, MoreVert, Share} from "@mui/icons-material";
+import {MoreVert} from "@mui/icons-material";
 import Typography from "@mui/material/Typography";
+import {useState} from "react";
+import { Users } from "../../dummyData";
 
-export const Post = () => {
+// eslint-disable-next-line react/prop-types
+export const Post = ({post}) => {
+
+    const [like,setLike] = useState(post.like)
+    const [isLiked,setIsLiked] = useState(false)
+
+    const likeHandler =()=>{
+        setLike(isLiked ? like-1 : like+1)
+        setIsLiked(!isLiked)
+    }
+
     return (
         <Card sx={{margin: 2}}>
             <CardHeader
                 avatar={
                     <Avatar sx={{width: 42, height: 42, marginLeft: "7px"}}
-                            src="/assets/person/1.jpeg"
+                            src={Users.filter((u) => u.id === post?.userId)[0].profilePicture}
                     />
                 }
                 action={
@@ -26,33 +36,25 @@ export const Post = () => {
                         <MoreVert/>
                     </IconButton>
                 }
-                title="John Doe"
-                subheader="September 14, 2022"
+                title={Users.filter((u) => u.id === post?.userId)[0].username}
+                subheader={post.date}
             />
             <CardContent>
                 <Typography variant="body2">
-                    This impressive paella is a perfect party dish and a fun meal to cook
-                    together with your guests. Add 1 cup of frozen peas along with the
-                    mussels, if you like.
+                    {post?.desc}
                 </Typography>
             </CardContent>
             <CardMedia
                 component="img"
                 height="20%"
-                image="https://images.pexels.com/photos/4534200/pexels-photo-4534200.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                image={post.photo}
                 alt="Paella dish"
             />
             <CardActions disableSpacing>
-                <Checkbox
-                    icon={<FavoriteBorder/>}
-                    checkedIcon={<Favorite sx={{color: "red"}}/>}
-                />
-                <Checkbox
-                    icon={<RecommendIcon/>}
-                    checkedIcon={<RecommendIcon sx={{color: "blue"}}/>}
-                />
-                <Typography>140 people likes it</Typography>
-                <Typography marginLeft={25}>10 comments</Typography>
+                <img height="18px" src="assets/like.png" onClick={likeHandler} alt="" />
+                <img height="18px" src="assets/heart.png" onClick={likeHandler} alt="" />
+                <Typography>{like} people likes it</Typography>
+                <Typography marginLeft={25}>{post.comment} comments</Typography>
             </CardActions>
         </Card>
     )
