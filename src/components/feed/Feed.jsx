@@ -5,7 +5,7 @@ import { Posts } from "../../dummyData.jsx";
 
 export const Feed = () => {
     return (
-        <Box flex={5.5}>
+        <Box flex={8} sx={{marginRight:"5%"}}>
             <Share/>
             {Posts.map((p) => (
                 <Post key={p.id} post={p} />

@@ -3,9 +3,11 @@ import Typography from "@mui/material/Typography";
 import {Avatar, Stack} from "@mui/material";
 import Badge from "@mui/material/Badge";
 import {styled} from "@mui/material/styles";
+import {Users} from "../../dummyData.jsx";
+import Online from "../online/Online.jsx";
 
 
-const StyledBadge = styled(Badge)(({ theme }) => ({
+const StyledBadge = styled(Badge)(({theme}) => ({
     '& .MuiBadge-badge': {
         backgroundColor: '#44b700',
         color: '#44b700',
@@ -37,13 +39,13 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 export const Rightbar = () => {
     return (
-        <Box flex={3.5}>
+        <Box flex={3}>
             <Box>
                 <Stack direction="row" mt={1}>
                     <img src="assets/gift.png"
                          height="30px"
                          alt="birthday"
-                         style={{marginTop: '2px', marginRight:'1px'}}
+                         style={{marginTop: '2px', marginRight: '1px'}}
                     />
                     <Typography>
                         <b> Pola Foster </b> and <b> 3 other friends </b> hava a birthday today.
@@ -58,46 +60,9 @@ export const Rightbar = () => {
                 <Typography sx={{fontWeight: '600'}}>
                     Online Friends
                 </Typography>
-                <Stack direction="row" mt={1}>
-                    <StyledBadge
-                        overlap="circular"
-                        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                        variant="dot"
-                    >
-                        <Avatar alt="Remy Sharp" src="/assets/person/6.jpeg" />
-                    </StyledBadge>
-                    <Typography sx={{fontWeight: '500', margin:"8px 2px 7px 5px"}}>John Carter</Typography>
-                </Stack>
-                <Stack direction="row" mt={1}>
-                    <StyledBadge
-                        overlap="circular"
-                        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                        variant="dot"
-                    >
-                        <Avatar alt="Remy Sharp" src="/assets/person/6.jpeg" />
-                    </StyledBadge>
-                    <Typography sx={{fontWeight: '500', margin:"8px 2px 7px 5px"}}>John Carter</Typography>
-                </Stack>
-                <Stack direction="row" mt={1}>
-                    <StyledBadge
-                        overlap="circular"
-                        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                        variant="dot"
-                    >
-                        <Avatar alt="Remy Sharp" src="/assets/person/6.jpeg" />
-                    </StyledBadge>
-                    <Typography sx={{fontWeight: '500', margin:"8px 2px 7px 5px"}}>John Carter</Typography>
-                </Stack>
-                <Stack direction="row" mt={1}>
-                    <StyledBadge
-                        overlap="circular"
-                        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                        variant="dot"
-                    >
-                        <Avatar alt="Remy Sharp" src="/assets/person/6.jpeg" />
-                    </StyledBadge>
-                    <Typography sx={{fontWeight: '500', margin:"8px 2px 7px 5px"}}>John Carter</Typography>
-                </Stack>
+                {Users.map((u) => (
+                    <Online key={u.id} user={u}/>
+                ))}
             </Box>
         </Box>
     )

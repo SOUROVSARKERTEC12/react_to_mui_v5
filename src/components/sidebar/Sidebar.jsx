@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import {Avatar, Button, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
+import {Button, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import {
     Bookmark,
     Chat,
@@ -11,17 +11,9 @@ import {
     WorkOutline,
     Event
 } from "@mui/icons-material";
-import Typography from "@mui/material/Typography";
-import {styled} from "@mui/material/styles";
+import { Users } from "../../dummyData";
+import {CloseFriend} from "../closeFriend/CloseFriend.jsx";
 
-
-const UserBox = styled(Box)({
-    marginTop: "10px",
-    display: 'flex',
-    alignItems: 'center',
-    gap: "10px",
-    marginBottom: "20px",
-})
 
 export const Sidebar = () => {
     return (
@@ -30,10 +22,7 @@ export const Sidebar = () => {
                 <List
                     sx={{
                         marginBottom: "10px",
-                        width: '100%',
-                        maxWidth: 360,
                         bgcolor: 'background.paper',
-                        position: 'relative',
                         overflow: 'auto',
                         maxHeight: 605,
                         '& ul': { padding: 10 },
@@ -112,30 +101,9 @@ export const Sidebar = () => {
                     </ListItem>
                     <Button variant='outlined'>Show More</Button>
                     <Divider sx={{marginTop: 1}}/>
-                    <UserBox>
-                        <Avatar sx={{width: 32, height: 32}}
-                                src="/assets/person/2.jpeg"
-                        />
-                        <Typography variant="span">John Deo</Typography>
-                    </UserBox>
-                    <UserBox>
-                        <Avatar sx={{width: 32, height: 32}}
-                                src="/assets/person/2.jpeg"
-                        />
-                        <Typography variant="span">John Deo</Typography>
-                    </UserBox>
-                    <UserBox>
-                        <Avatar sx={{width: 32, height: 32}}
-                                src="/assets/person/2.jpeg"
-                        />
-                        <Typography variant="span">John Deo</Typography>
-                    </UserBox>
-                    <UserBox>
-                        <Avatar sx={{width: 32, height: 32}}
-                                src="/assets/person/2.jpeg"
-                        />
-                        <Typography variant="span">John Deo</Typography>
-                    </UserBox>
+                    {Users.map((u) => (
+                        <CloseFriend key={u.id} user={u} />
+                    ))}
                 </List>
             </Box>
         </Box>

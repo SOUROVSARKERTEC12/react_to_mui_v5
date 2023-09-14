@@ -53,8 +53,8 @@ export const Post = ({post}) => {
             <CardActions disableSpacing>
                 <img height="18px" src="assets/like.png" onClick={likeHandler} alt="" />
                 <img height="18px" src="assets/heart.png" onClick={likeHandler} alt="" />
-                <Typography>{like} people likes it</Typography>
-                <Typography marginLeft={25}>{post.comment} comments</Typography>
+                <Typography> {like} people likes it</Typography>
+                <Typography marginLeft={33}>{post.comment} comments</Typography>
             </CardActions>
         </Card>
     )
