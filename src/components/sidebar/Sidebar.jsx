@@ -17,16 +17,9 @@ import {CloseFriend} from "../closeFriend/CloseFriend.jsx";
 
 export const Sidebar = () => {
     return (
-        <Box flex={3}>
-            <Box position="fixed">
-                <List
-                    sx={{
-                        marginBottom: "10px",
-                        bgcolor: 'background.paper',
-                        overflow: 'auto',
-                        maxHeight: 605,
-                        '& ul': { padding: 10 },
-                    }}>
+        <Box flex={3} sx={{display: {xs: "none", sm:"block"}}}>
+            <Box>
+                <List>
                     <ListItem disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
