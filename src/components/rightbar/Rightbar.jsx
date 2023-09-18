@@ -8,7 +8,7 @@ import Online from "../online/Online.jsx";
 export const Rightbar = ({profile}) => {
     const HomeRightbar = () => {
         return (
-            <Box flex={3}>
+            <Box sx={{display: {xs:"none",sm:"block"}}}>
                 <Box>
                     <Stack direction="row" mt={1}>
                         <img src="assets/gift.png"
