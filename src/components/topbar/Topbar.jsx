@@ -13,8 +13,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import {useState} from "react";
-import {Avatar, Button, ButtonGroup} from "@mui/material";
+import {Avatar, Button, ButtonGroup, Drawer} from "@mui/material";
 import {Chat, Person} from "@mui/icons-material";
+import {SidebarDrawer} from "../sidebar/SidebarDrawer.jsx";
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -79,6 +80,13 @@ export default function Topbar() {
     const handleMobileMenuOpen = (event) => {
         setMobileMoreAnchorEl(event.currentTarget);
     };
+
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+    const toggleDrawer = () => {
+        setIsDrawerOpen(!isDrawerOpen);
+    };
+
 
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
@@ -172,9 +180,17 @@ export default function Topbar() {
                         color="inherit"
                         aria-label="open drawer"
                         sx={{ mr: 2 , display: { xs: 'block', sm: 'none'  }}}
+                        onClick={toggleDrawer}
                     >
                         <MenuIcon />
                     </IconButton>
+                    <Drawer
+                        anchor="left"
+                        open={isDrawerOpen}
+                        onClose={toggleDrawer}
+                    >
+                        <SidebarDrawer/>
+                    </Drawer>
                     <Typography
                         variant="h6"
                         noWrap
